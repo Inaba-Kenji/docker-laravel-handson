@@ -1,0 +1,11 @@
+# Docker Composeファイルのバージョンを指定しています。
+version: "3.9"
+services:
+# サービス名は任意に決められます。
+  app:
+# ビルドコンテキストを指定します。
+# docker buildを実行する際の現在の作業ディレクトリのことをビルドコンテキスト(build context)と呼びます。
+    build: ./infra/php
+# ホスト側のディレクトリや名前付きボリュームをコンテナ側へマウントしたい時に指定します。
+    volumes:
+      - ./backend:/work
